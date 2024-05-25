@@ -1,0 +1,49 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PassportSystem"
+        xmlns:Data="clr-namespace:System.Data;assembly=System.Data" x:Class="PassportSystem.MainWindow"
+        mc:Ignorable="d"
+        Title="Система учета паспортных данных" Height="720" Width="1366"
+        >
+    <Grid Margin="0,7,0,-7">
+        <Label Content="Фамилия:" HorizontalAlignment="Left" Margin="858,67,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbSurname" HorizontalAlignment="Left" Margin="858,93,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" Height="22"/>
+        <Label Content="Имя:" HorizontalAlignment="Left" Margin="858,120,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Margin="858,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" Height="22"/>
+        <Label Content="Отчество:" HorizontalAlignment="Left" Margin="858,173,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbPatronymic" HorizontalAlignment="Left" Margin="858,197,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" Height="22"/>
+        <Label Content="Гражданство:" HorizontalAlignment="Left" Margin="858,224,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbCountry" HorizontalAlignment="Left" Margin="858,252,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" Height="22"/>
+
+        <Label Content="Серия паспорта:" HorizontalAlignment="Left" Margin="1042,67,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbSeriyaPassport" HorizontalAlignment="Left" Margin="1042,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>
+        <Label Content="Номер паспорта:" HorizontalAlignment="Left" Margin="1042,120,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbNomerPassport" HorizontalAlignment="Left" Margin="1042,148,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>
+        <Button x:Name="CheckButton" Content="Загрузить данные паспорта" HorizontalAlignment="Left" Margin="1042,178,0,0" VerticalAlignment="Top" Height="48" Width="246" FontSize="18" Click="CheckButton_Click"/>
+
+        <Label Content="Пол:" HorizontalAlignment="Left" Margin="1042,224,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbSex" HorizontalAlignment="Left" Margin="1042,252,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" Height="22"/>
+        <Label Content="Дата рождения:" HorizontalAlignment="Left" Margin="1190,67,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbDateOfBirth" HorizontalAlignment="Left" Margin="1190,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Дата выдачи паспорта:" HorizontalAlignment="Left" Margin="1190,120,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbDateVidachi" HorizontalAlignment="Left" Margin="1190,148,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbID" HorizontalAlignment="Left" Margin="1059,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbID_TextChanged"/>
+        <Label Content="Введите ID:" HorizontalAlignment="Left" Margin="1059,21,0,0" VerticalAlignment="Top"/>
+        <Label Content="Разрешить проход через границу" HorizontalAlignment="Left" Margin="1023,315,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbYes" Content="Да" HorizontalAlignment="Left" Margin="1023,0,0,0" VerticalAlignment="Center" Checked="cbYes_Checked"/>
+        <CheckBox x:Name="cbNo" Content="Нет" HorizontalAlignment="Left" Margin="1023,369,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btConfirm" Content="Подтвердить" HorizontalAlignment="Left" Margin="954,428,0,0" VerticalAlignment="Top" Height="56" Width="296" FontSize="36" Click="btConfirm_Click"/>
+
+        <Border BorderThickness="1" BorderBrush="Black" Margin="46,63,678,28"/>
+        <Image HorizontalAlignment="Left" Height="581" Margin="64,80,0,0" VerticalAlignment="Top" Width="606" Source="/primer.png"/>
+        <Label Content="Пример заполненых полей" HorizontalAlignment="Left" Margin="221,25,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Button Content="Новый гражданин" HorizontalAlignment="Left" Margin="777,579,0,0" VerticalAlignment="Top" Height="53" Width="245" FontSize="20" Click="Button_Click"/>
+
+
+
+
+    </Grid>
+</Window>
