@@ -37,7 +37,6 @@ namespace PassportSystem.Log_in_and_Sign_in
             string loginUser = tbLogin.Text;
             string passwordUser = tbPassword.Text;
             
-            
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dataTable = new DataTable();
 
@@ -53,8 +52,6 @@ namespace PassportSystem.Log_in_and_Sign_in
                 MainWindow mainWindow = new MainWindow();
                 this.Close();
                 mainWindow.Show();
-
-
             }
             else
             {

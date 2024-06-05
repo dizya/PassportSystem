@@ -141,6 +141,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DemoDB.mdf</DependentUpon>
     </Content>
+    <Resource Include="photo1716849454.jpeg" />
     <Resource Include="primer.png" />
   </ItemGroup>
   <ItemGroup>

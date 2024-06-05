@@ -48,7 +48,7 @@ namespace PassportSystem
                 MessageBox.Show("Вы успешно зарегестрировались");
 
 
-                await Task.Delay(5000);
+                await Task.Delay(1000);
 
                 UserValidationWindow userValidationWindow = new UserValidationWindow();
                 userValidationWindow.Show();
@@ -57,8 +57,7 @@ namespace PassportSystem
             }
             catch (Exception)
             {
-
-                throw;
+                MessageBox.Show("Что-то пошло не так, проверьте введенные вами данные");
             }
             
             

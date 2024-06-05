@@ -37,7 +37,8 @@ namespace PassportSystem
             SqlConnection sqlConnectionForNewPersonPassport = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\spiri\\source\\repos\\PassportSystem\\PassportSystem\\DemoDB.mdf;Integrated Security=True");
             sqlConnectionForNewPersonPassport.Open();
 
-            string query = "insert into NewPersonPassport (NewSeriyaPassport, NewNomerPassport, NewDataVidachiPassport) values (@seriya_passport, @nomer_passport, @data_vidachi_passport)";
+            string query = "insert into NewPersonPassport (NewSeriyaPassport, NewNomerPassport, NewDataVidachiPassport) " +
+                "values (@seriya_passport, @nomer_passport, @data_vidachi_passport)";
 
             try
             {
@@ -52,9 +53,9 @@ namespace PassportSystem
                     MessageBox.Show("Паспортные данные успешно загружены");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Введеные вами данные некорректны");
             }
 
             sqlConnectionForNewPersonPassport.Close();
@@ -65,7 +66,8 @@ namespace PassportSystem
             SqlConnection sqlConnectionNewPerson = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\spiri\\source\\repos\\PassportSystem\\PassportSystem\\DemoDB.mdf;Integrated Security=True");
             sqlConnectionNewPerson.Open();
 
-            string query = "insert into NewHuman (NewName, NewSurname, NewPatronymic, NewBirthday, NewCountry, NewSex) values (@new_name, @new_surname, @new_patronymic, @new_birthday, @new_country, @new_sex)";
+            string query = "insert into NewHuman (NewName, NewSurname, NewPatronymic, NewBirthday, NewCountry, NewSex) " +
+                "values (@new_name, @new_surname, @new_patronymic, @new_birthday, @new_country, @new_sex)";
 
             try
             {
@@ -83,9 +85,9 @@ namespace PassportSystem
                     MessageBox.Show("Данные о гражданине успешно загружены");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Данные введены некорректно");
             }
 
             sqlConnectionNewPerson.Close();
@@ -96,7 +98,8 @@ namespace PassportSystem
             SqlConnection sqlconPushNewPersonControl = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\spiri\\source\\repos\\PassportSystem\\PassportSystem\\DemoDB.mdf;Integrated Security=True");
             sqlconPushNewPersonControl.Open();
 
-            string query = "insert into HumanSuccsesControl (Name, Surname, Patronymic, Birthday, Country, Sex, SeriyaPassport, NomerPassport, DataVidachiPassport) values (@new_name, @new_surname, @new_patronymic, @new_birthday, @new_country, @new_sex, @seriya_passport, @nomer_passport, @data_vidachi_passport)";
+            string query = "insert into HumanSuccsesControl (Name, Surname, Patronymic, Birthday, Country, Sex, SeriyaPassport, NomerPassport, DataVidachiPassport)" +
+                " values (@new_name, @new_surname, @new_patronymic, @new_birthday, @new_country, @new_sex, @seriya_passport, @nomer_passport, @data_vidachi_passport)";
 
             try
             {
@@ -117,9 +120,9 @@ namespace PassportSystem
                     MessageBox.Show("Гражданин успешно добавлен в базу данных");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Не удалось отправить данные, проверьте корректность введенных данных");
             }
 
         }

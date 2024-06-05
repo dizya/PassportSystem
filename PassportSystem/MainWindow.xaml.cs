@@ -69,9 +69,6 @@ namespace PassportSystem
                     tbSeriyaPassport.Text = reader.GetValue(0).ToString();
                     tbNomerPassport.Text = reader.GetValue(1).ToString();
                     tbDateVidachi.Text = reader.GetValue(2).ToString();
-
-                    MessageBox.Show("Подтвердите действие нажатием кнопки ниже");
-
                 }
                 reader.Close();
             }
@@ -81,34 +78,12 @@ namespace PassportSystem
             }
         }
 
-        private void cbYes_Checked(object sender, RoutedEventArgs e)
-        {
-            //if (cbYes.IsChecked == true)
-            //{
-            //    string name = tbName.Text;
-            //    string surname = tbSurname.Text;
-            //    string patronymic = tbPatronymic.Text;
-            //    string datebirthday = tbDateOfBirth.Text;
-            //    string country = tbCountry.Text;
-            //    string sex = tbSex.Text;
-            //    string seriyapas = tbSeriyaPassport.Text;
-            //    string nomerpas = tbNomerPassport.Text;
-            //    string datevidachi = tbDateVidachi.Text;
-
-            //}
-            //else if (cbNo.IsChecked == true)
-            //{
-            //    MessageBox.Show("Контроль не прошел проверку данных");
-            //    Close();
-            //}
-            
-        }
-
         private void btConfirm_Click(object sender, RoutedEventArgs e)
         {
             SqlConnection sqlConnectionForPushData = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\spiri\\source\\repos\\PassportSystem\\PassportSystem\\DemoDB.mdf;Integrated Security=True");
 
-            string query = "INSERT INTO HumanSuccsesControl (Name, Surname, Patronymic, Birthday, Country, Sex, SeriyaPassport, NomerPassport, DataVidachiPassport) VALUES (@name, @surname, @patronymic, @datebirthday, @country, @sex, @seriyapas, @nomerpas, @datevidachi)";
+            string query = "INSERT INTO HumanSuccsesControl (Name, Surname, Patronymic, Birthday, Country, Sex, SeriyaPassport, NomerPassport, DataVidachiPassport)" +
+                " VALUES (@name, @surname, @patronymic, @datebirthday, @country, @sex, @seriyapas, @nomerpas, @datevidachi)";
 
             SqlCommand cmdPushData = new SqlCommand(query, sqlConnectionForPushData);
 
@@ -127,22 +102,19 @@ namespace PassportSystem
                 cmdPushData.ExecuteNonQuery();
                 sqlConnectionForPushData.Close();
 
-                MessageBox.Show("Успешно пройдено");
+                MessageBox.Show("Данные гражданина успешно загружены, поздравляем!");
             }
             catch (Exception)
             {
-
                 MessageBox.Show("Вы ввели что-то некорректно");
             }
-           
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NewPerson newPerson = new NewPerson();
-            newPerson.Show();
-            this.Close();
+            NewPerson newPerson = new NewPerson();//создание экземпляра класса нового окна
+            newPerson.Show();//открытие нового окна
+            this.Close();//закрытие текущего окна
         }
         //TRUNCATE TABLE tablename начать айди с 1 в бд
     }
