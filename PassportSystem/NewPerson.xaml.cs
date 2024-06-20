@@ -48,14 +48,25 @@ namespace PassportSystem
                     cmdPassNew.Parameters.AddWithValue(@"nomer_passport", tbNomerPassport.Text );
                     cmdPassNew.Parameters.AddWithValue(@"data_vidachi_passport", tbDateVidachi.Text);
 
+                    StringBuilder errors = new StringBuilder();
+                    if (string.IsNullOrWhiteSpace(tbSeriyaPassport.Text)) errors.AppendLine("Не введена серия паспорта");
+                    if (string.IsNullOrWhiteSpace(tbNomerPassport.Text)) errors.AppendLine("Не введен номер паспорта");
+                    if (string.IsNullOrWhiteSpace(tbDateVidachi.Text)) errors.AppendLine("Не введена дата выдачи паспорта");
+
+                    if (errors.Length > 0)
+                    {
+                        MessageBox.Show(errors.ToString());
+                        return;
+                    }
+
                     cmdPassNew.ExecuteNonQuery();
 
                     MessageBox.Show("Паспортные данные успешно загружены");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Введеные вами данные некорректны");
+                MessageBox.Show(ex.ToString());
             }
 
             sqlConnectionForNewPersonPassport.Close();
@@ -80,14 +91,28 @@ namespace PassportSystem
                     cmdNewPerson.Parameters.AddWithValue(@"new_country", tbCountry.Text);
                     cmdNewPerson.Parameters.AddWithValue(@"new_sex", tbSex.Text);
 
+                    StringBuilder sb = new StringBuilder();
+                    if (string.IsNullOrWhiteSpace(tbName.Text)) sb.AppendLine("Не введено Имя");
+                    if (string.IsNullOrWhiteSpace(tbSurname.Text)) sb.AppendLine("Не введена Фамилия");
+                    if (string.IsNullOrWhiteSpace(tbPatronymic.Text)) sb.AppendLine("Не введено Отчество");
+                    if (string.IsNullOrWhiteSpace(tbDateOfBirth.Text)) sb.AppendLine("Не введена Дата рождения");
+                    if (string.IsNullOrWhiteSpace(tbCountry.Text)) sb.AppendLine("Не введена Страна");
+                    if (string.IsNullOrWhiteSpace(tbSex.Text)) sb.AppendLine("Не введен Пол");
+
+                    if (sb.Length > 0)
+                    {
+                        MessageBox.Show(sb.ToString());
+                        return;
+                    }
+
                     cmdNewPerson.ExecuteNonQuery();
 
                     MessageBox.Show("Данные о гражданине успешно загружены");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Данные введены некорректно");
+                MessageBox.Show(ex.ToString());
             }
 
             sqlConnectionNewPerson.Close();

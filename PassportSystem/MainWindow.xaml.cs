@@ -102,11 +102,29 @@ namespace PassportSystem
                 cmdPushData.ExecuteNonQuery();
                 sqlConnectionForPushData.Close();
 
+                StringBuilder sb = new StringBuilder();
+                if (string.IsNullOrWhiteSpace(tbSeriyaPassport.Text)) sb.AppendLine("Не введена серия паспорта");
+                if (string.IsNullOrWhiteSpace(tbNomerPassport.Text)) sb.AppendLine("Не введен номер паспорта");
+                if (string.IsNullOrWhiteSpace(tbDateVidachi.Text)) sb.AppendLine("Не введена дата выдачи паспорта");
+                if (string.IsNullOrWhiteSpace(tbName.Text)) sb.AppendLine("Не введено Имя");
+                if (string.IsNullOrWhiteSpace(tbSurname.Text)) sb.AppendLine("Не введена Фамилия");
+                if (string.IsNullOrWhiteSpace(tbPatronymic.Text)) sb.AppendLine("Не введено Отчество");
+                if (string.IsNullOrWhiteSpace(tbDateOfBirth.Text)) sb.AppendLine("Не введена Дата рождения");
+                if (string.IsNullOrWhiteSpace(tbCountry.Text)) sb.AppendLine("Не введена Страна");
+                if (string.IsNullOrWhiteSpace(tbSex.Text)) sb.AppendLine("Не введен Пол");
+
+                if (sb.Length > 0)
+                {
+                    MessageBox.Show(sb.ToString());
+                    return;
+                }
+
+
                 MessageBox.Show("Данные гражданина успешно загружены, поздравляем!");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Вы ввели что-то некорректно");
+                MessageBox.Show(ex.ToString()); 
             }
         }
 
