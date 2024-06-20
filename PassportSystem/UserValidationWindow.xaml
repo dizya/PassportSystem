@@ -11,10 +11,11 @@
 
         <TextBlock Margin="0,38,0,0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Авторизация" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,279,0,0" TextWrapping="Wrap" Text="Введите пароль:" VerticalAlignment="Top" FontSize="24" FontStyle="Italic"/>
-        <Button x:Name="btAuth" Content="Войти" HorizontalAlignment="Center" Margin="0,420,0,0" VerticalAlignment="Top" Height="65" Width="200" FontSize="36" FontWeight="Bold" Click="btAuth_Click"/>
+        <TextBox x:Name="tbLogin"  HorizontalAlignment="Center" Margin="0,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="416" Height="31" FontSize="20"/>
         <TextBox x:Name="tbPassword" HorizontalAlignment="Center" VerticalAlignment="Top" Width="416" Height="31" FontSize="20" Margin="0,321,0,0"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,140,0,0" TextWrapping="Wrap" Text="Введите логин:" VerticalAlignment="Top" FontSize="24" FontStyle="Italic"/>
-        <TextBox x:Name="tbLogin"  HorizontalAlignment="Center" Margin="0,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="416" Height="31" FontSize="20"/>
         <Button x:Name="btRegistration" Content="Нет аккаунта? Зарегестрироваться." HorizontalAlignment="Center" Margin="0,366,0,0" VerticalAlignment="Top" Click="btRegistration_Click"/>
+        <Button x:Name="btAuth" Content="Войти" HorizontalAlignment="Center" Margin="0,420,0,0" VerticalAlignment="Top" Height="65" Width="200" FontSize="36" FontWeight="Bold" Click="btAuth_Click"/>
+
     </Grid>
 </Window>

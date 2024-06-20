@@ -27,16 +27,24 @@ namespace PassportSystem.Log_in_and_Sign_in
             InitializeComponent();
         }
 
-
-
-
-        private void btAuth_Click(object sender, RoutedEventArgs e)
+        private void btAuth_Click(object sender, RoutedEventArgs e)  // метод входа в систему
         {
             SqlConnection sqlConnectionForUsers = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\spiri\\source\\repos\\PassportSystem\\PassportSystem\\DemoDB.mdf;Integrated Security=True");
 
             string loginUser = tbLogin.Text;
             string passwordUser = tbPassword.Text;
-            
+
+            if (loginUser == string.Empty || passwordUser == string.Empty)
+            {
+                MessageBox.Show("Вы оставили поля пустыми, заполните поля");
+                return;
+            }
+
+            StringBuilder errors = new StringBuilder(); //создание переменной для хранения ошибок
+            if (string.IsNullOrWhiteSpace(loginUser)) errors.AppendLine("Вы ничего не ввели в поле Логин, пожалуйста введите корректные данные");
+            if (string.IsNullOrWhiteSpace(passwordUser)) errors.AppendLine("Вы ничего не ввели в поле Пароль, пожалуйста, введите корректные данные");
+
+
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dataTable = new DataTable();
 
@@ -60,13 +68,16 @@ namespace PassportSystem.Log_in_and_Sign_in
 
         }
 
+
+
         private void btRegistration_Click(object sender, RoutedEventArgs e)
         {
             SignUp signUp = new SignUp();
             signUp.Show();
             this.Close();
         }
+        //TRUNCATE TABLE tablename начать айди с 1 в бд
 
-       
+
     }
 }
