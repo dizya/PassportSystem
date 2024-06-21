@@ -19,9 +19,9 @@
         <TextBox x:Name="tbCountry" HorizontalAlignment="Left" Margin="858,252,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" Height="22"/>
 
                 <Label Content="Серия паспорта:" HorizontalAlignment="Left" Margin="1042,67,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbSeriyaPassport" HorizontalAlignment="Left" Margin="1042,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>
+        <TextBox x:Name="tbSeriyaPassport" HorizontalAlignment="Left" Margin="1042,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110" PreviewTextInput="tbSeriyaPassport_PreviewTextInput"/>
                 <Label Content="Номер паспорта:" HorizontalAlignment="Left" Margin="1042,120,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbNomerPassport" HorizontalAlignment="Left" Margin="1042,148,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"/>
+        <TextBox x:Name="tbNomerPassport" HorizontalAlignment="Left" Margin="1042,148,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"  PreviewTextInput="tbNomerPassport_PreviewTextInput"/>
             <Button x:Name="CheckButton" Content="Загрузить данные паспорта" HorizontalAlignment="Left" Margin="1042,178,0,0" VerticalAlignment="Top" Height="48" Width="246" FontSize="18" Click="CheckButton_Click"/>
 
                 <Label Content="Пол:" HorizontalAlignment="Left" Margin="1042,224,0,0" VerticalAlignment="Top"/>

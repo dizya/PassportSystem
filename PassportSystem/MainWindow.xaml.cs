@@ -118,8 +118,6 @@ namespace PassportSystem
                     MessageBox.Show(sb.ToString());
                     return;
                 }
-
-
                 MessageBox.Show("Данные гражданина успешно загружены, поздравляем!");
             }
             catch (Exception ex)
@@ -133,6 +131,30 @@ namespace PassportSystem
             NewPerson newPerson = new NewPerson();//создание экземпляра класса нового окна
             newPerson.Show();//открытие нового окна
             this.Close();//закрытие текущего окна
+        }
+
+        private void tbSeriyaPassport_PreviewTextInput(object sender, TextCompositionEventArgs e) // метод обрабатывающий ввод букв в числовое поле серии паспорта
+        {
+            if (!TextOrNumber(e.Text))
+            {
+                e.Handled = true;
+                MessageBox.Show("Вы пытаетесь ввести не числовое значение, убедитесь в корректном вводе данных");
+            }
+        }
+
+        private void tbNomerPassport_PreviewTextInput(object sender, TextCompositionEventArgs e) // метод обрабатывающий ввод букв в числовое поле номера паспорта
+        {
+            if (!TextOrNumber(e.Text))
+            {
+                e.Handled = true;
+                MessageBox.Show("Вы пытаетесь ввести не числовое значение, убедитесь в корректном вводе данных");
+            }
+        }
+
+        private bool TextOrNumber (string text) // вспомогательный метод использующий регулярные выражения
+        {
+            Regex regex = new Regex("[^0-9]+"); // класс Regex позволят анализировать какие символы вводятся в поле, если вводится что угодно кроме цифр от 0 до 9, возникнет ошибка, сообщающая, что введеные данные некорректны
+            return !regex.IsMatch(text);
         }
         //TRUNCATE TABLE tablename начать айди с 1 в бд
     }

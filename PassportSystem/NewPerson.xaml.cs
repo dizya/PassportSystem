@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -140,6 +141,23 @@ namespace PassportSystem
                     cmdPushNewPerson.Parameters.AddWithValue(@"nomer_passport", tbNomerPassport.Text);
                     cmdPushNewPerson.Parameters.AddWithValue(@"data_vidachi_passport", tbDateVidachi.Text);
 
+                    StringBuilder sb = new StringBuilder();
+                    if (string.IsNullOrWhiteSpace(tbSeriyaPassport.Text)) sb.AppendLine("Не введена серия паспорта");
+                    if (string.IsNullOrWhiteSpace(tbNomerPassport.Text)) sb.AppendLine("Не введен номер паспорта");
+                    if (string.IsNullOrWhiteSpace(tbDateVidachi.Text)) sb.AppendLine("Не введена дата выдачи паспорта");
+                    if (string.IsNullOrWhiteSpace(tbName.Text)) sb.AppendLine("Не введено Имя");
+                    if (string.IsNullOrWhiteSpace(tbSurname.Text)) sb.AppendLine("Не введена Фамилия");
+                    if (string.IsNullOrWhiteSpace(tbPatronymic.Text)) sb.AppendLine("Не введено Отчество");
+                    if (string.IsNullOrWhiteSpace(tbDateOfBirth.Text)) sb.AppendLine("Не введена Дата рождения");
+                    if (string.IsNullOrWhiteSpace(tbCountry.Text)) sb.AppendLine("Не введена Страна");
+                    if (string.IsNullOrWhiteSpace(tbSex.Text)) sb.AppendLine("Не введен Пол");
+
+                    if (sb.Length > 0)
+                    {
+                        MessageBox.Show(sb.ToString());
+                        return;
+                    }
+
                     cmdPushNewPerson.ExecuteNonQuery();
 
                     MessageBox.Show("Гражданин успешно добавлен в базу данных");
@@ -150,6 +168,30 @@ namespace PassportSystem
                 MessageBox.Show("Не удалось отправить данные, проверьте корректность введенных данных");
             }
 
+        }
+
+        private void tbSeriyaPassport_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!TextOrNumber(e.Text))
+            {
+                e.Handled = true;
+                MessageBox.Show("Вы пытаетесь ввести не числовое значение, убедитесь в корректном вводе данных");
+            }
+        }
+
+        private void tbNomerPassport_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!TextOrNumber(e.Text))
+            {
+                e.Handled = true;
+                MessageBox.Show("Вы пытаетесь ввести не числовое значение, убедитесь в корректном вводе данных");
+            }
+        }
+
+        private bool TextOrNumber(string text) // вспомогательный метод использующий регулярные выражения
+        {
+            Regex regex = new Regex("[^0-9]+"); // класс MainWindow строка 156
+            return !regex.IsMatch(text);
         }
     }
 }
